@@ -172,10 +172,10 @@ config t
 ip routing
 ip dhcp pool CAMERA6
 host 10.62.50.6 255.255.255.0
-client-identifier 001a.0704.7f5b
+client-identifier 001a.0706.c302
 ip dhcp pool CAMERA8
 host 10.62.50.8 255.255.255.0
-client-identifier 001a.0709.c258 
+client-identifier 001a.070b.472e 
 end
 show ip dhcp binding
 
@@ -250,12 +250,12 @@ ephone-dn 8
 ephone-dn 10
  number 6298
 Ephone 1
-  Mac-address cafe.face.baba
+  Mac-address 203a.0782.bd3b
   type 8945
   button 1:8 2:7 3:6 4:5
   restart
 Ephone 2
-  Mac-address fafa.caca.baba
+  Mac-address ccd8.c1fb.1519
   type 8945
   button 1:4 2:3 3:2 4:1
   restart  
@@ -288,8 +288,8 @@ configure terminal
  destination-pattern 11..
  session target ipv4:10.11.100.8
  codec g711ULAW
-  !dial-peer voice 12 Voip
-  !destination-pattern 12..
+  !dial-peer voice 62 Voip
+  !destination-pattern 62..
   !session target ipv4:10.12.100.8
   !codec g711ULAW
 dial-peer voice 21 Voip
@@ -394,6 +394,7 @@ siib: sh ip int brief
 sirc: sh ip route connected
 @EDGE:
 config t
+no router ospf 1
 router ospf 1
 router-id 62.0.0.1
 network 200.0.0.0  0.0.0.255 area 0
@@ -405,6 +406,7 @@ end
 
 @CoreBABA:
 config t
+no router ospf 1
 router ospf 1
 router-id 10.62.62.4
 network 10.62.0.0  0.0.255.255 area 0
@@ -414,6 +416,7 @@ end
 
 @CUCM:
 config t
+no router ospf 1
 router ospf 1
 router-id 10.62.100.8
 network 10.62.100.0  0.0.0.255  area 0
@@ -672,6 +675,7 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
 
 
 
